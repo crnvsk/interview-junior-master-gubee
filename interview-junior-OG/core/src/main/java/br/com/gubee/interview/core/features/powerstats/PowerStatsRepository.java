@@ -38,6 +38,12 @@ public class PowerStatsRepository {
                 .findFirst();
     }
 
+    public void delete(UUID id) {
+        String sql = "DELETE FROM power_stats WHERE id = :id";
+        Map<String, Object> params = Map.of("id", id);
+        namedParameterJdbcTemplate.update(sql, params);
+    }
+
     private RowMapper<PowerStats> powerStatsRowMapper() {
         return (rs, rowNum) -> PowerStats.builder()
                 .id(UUID.fromString(rs.getString("id")))

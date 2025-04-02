@@ -22,4 +22,9 @@ public class PowerStatsService {
     public Optional<PowerStats> findById(UUID id) {
         return powerStatsRepository.findById(id);
     }
+
+    @Transactional
+    public void delete(UUID id) {
+        powerStatsRepository.delete(id);
+    }
 }
