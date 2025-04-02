@@ -77,4 +77,11 @@ public class HeroRepository {
                                 "powerStatsId", updatedHero.getPowerStatsId());
                 namedParameterJdbcTemplate.update(UPDATE_HERO_QUERY, params);
         }
+
+        private static final String DELETE_HERO_QUERY = "DELETE FROM hero WHERE id = :id";
+
+        public void delete(UUID id) {
+                final Map<String, Object> params = Map.of("id", id);
+                namedParameterJdbcTemplate.update(DELETE_HERO_QUERY, params);
+        }
 }

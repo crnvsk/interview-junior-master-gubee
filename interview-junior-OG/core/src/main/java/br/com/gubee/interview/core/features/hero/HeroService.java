@@ -50,4 +50,14 @@ public class HeroService {
         heroRepository.update(id, updatedHero);
         return true;
     }
+
+    @Transactional
+    public boolean deleteHero(UUID id) {
+        Optional<Hero> existingHero = heroRepository.findById(id);
+        if (existingHero.isEmpty()) {
+            return false;
+        }
+        heroRepository.delete(id);
+        return true;
+    }
 }
