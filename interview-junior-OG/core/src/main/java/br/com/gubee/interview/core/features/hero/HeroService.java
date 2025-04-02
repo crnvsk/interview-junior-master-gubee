@@ -18,10 +18,8 @@ public class HeroService {
 
     @Transactional
     public UUID create(CreateHeroRequest createHeroRequest) {
-        // Generate powerStatsId based on the request
         UUID powerStatsId = generatePowerStatsId(createHeroRequest);
 
-        // Use the existing constructor
         Hero hero = new Hero(createHeroRequest, powerStatsId);
 
         return heroRepository.create(hero);
@@ -32,7 +30,6 @@ public class HeroService {
     }
 
     private UUID generatePowerStatsId(CreateHeroRequest createHeroRequest) {
-        // Example logic: Combine power stats into a unique identifier
         String combinedStats = createHeroRequest.getStrength() + "-" +
                 createHeroRequest.getAgility() + "-" +
                 createHeroRequest.getDexterity() + "-" +
@@ -42,5 +39,15 @@ public class HeroService {
 
     public List<Hero> findByName(String name) {
         return heroRepository.findByName(name);
+    }
+
+    @Transactional
+    public boolean updateHero(UUID id, Hero updatedHero) {
+        Optional<Hero> existingHero = heroRepository.findById(id);
+        if (existingHero.isEmpty()) {
+            return false;
+        }
+        heroRepository.update(id, updatedHero);
+        return true;
     }
 }

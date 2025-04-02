@@ -61,4 +61,20 @@ public class HeroRepository {
                 final Map<String, Object> params = Map.of("name", "%" + name + "%");
                 return namedParameterJdbcTemplate.query(FIND_HEROES_BY_NAME_QUERY, params, heroRowMapper());
         }
+
+        private static final String UPDATE_HERO_QUERY = "UPDATE hero SET " +
+                        "name = :name, " +
+                        "race = :race, " +
+                        "power_stats_id = :powerStatsId, " +
+                        "updated_at = NOW() " +
+                        "WHERE id = :id";
+
+        public void update(UUID id, Hero updatedHero) {
+                final Map<String, Object> params = Map.of(
+                                "id", id,
+                                "name", updatedHero.getName(),
+                                "race", updatedHero.getRace().name(),
+                                "powerStatsId", updatedHero.getPowerStatsId());
+                namedParameterJdbcTemplate.update(UPDATE_HERO_QUERY, params);
+        }
 }
