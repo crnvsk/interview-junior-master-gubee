@@ -159,11 +159,9 @@ public class HeroServiceIT {
         UUID hero1Id = heroService.create(createHeroRequest("Hero1", 8, 7, 6, 9));
         UUID hero2Id = heroService.create(createHeroRequest("Hero2", 6, 8, 7, 5));
 
-        // Simula remoção de PowerStats
         heroService.findById(hero2Id).ifPresent(hero -> powerStatsService.findById(hero.getPowerStatsId())
                 .ifPresent(stats -> powerStatsService.delete(stats.getId())));
 
-        // Corrige o uso de assertThrows
         assertThrows(NoSuchElementException.class, () -> heroService.compareHeroes(hero1Id, hero2Id));
     }
 

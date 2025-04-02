@@ -20,7 +20,7 @@ public class PowerStatsRepositoryIT {
 
     @Test
     void findByIdShouldReturnPowerStats() {
-        // Arrange: Cria um PowerStats e salva no banco de dados
+        // Arrange
         PowerStats powerStats = PowerStats.builder()
                 .strength(10)
                 .agility(8)
@@ -29,10 +29,10 @@ public class PowerStatsRepositoryIT {
                 .build();
         UUID powerStatsId = powerStatsRepository.create(powerStats);
 
-        // Act: Recupera o PowerStats pelo ID
+        // Act
         Optional<PowerStats> foundPowerStats = powerStatsRepository.findById(powerStatsId);
 
-        // Assert: Verifica se os atributos foram recuperados corretamente
+        // Assert
         assertTrue(foundPowerStats.isPresent());
         assertEquals(10, foundPowerStats.get().getStrength());
         assertEquals(8, foundPowerStats.get().getAgility());
@@ -42,10 +42,10 @@ public class PowerStatsRepositoryIT {
 
     @Test
     void findByIdShouldReturnEmptyWhenNotFound() {
-        // Act: Tenta recuperar um PowerStats com um ID inexistente
+        // Act
         Optional<PowerStats> foundPowerStats = powerStatsRepository.findById(UUID.randomUUID());
 
-        // Assert: Verifica se o resultado é vazio
+        // Assert
         assertTrue(foundPowerStats.isEmpty());
     }
 }
