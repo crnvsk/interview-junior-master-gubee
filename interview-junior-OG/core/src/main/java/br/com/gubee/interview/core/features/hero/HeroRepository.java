@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -52,5 +53,12 @@ public class HeroRepository {
                                 .updatedAt(rs.getTimestamp("updated_at").toInstant())
                                 .enabled(rs.getBoolean("enabled"))
                                 .build();
+        }
+
+        private static final String FIND_HEROES_BY_NAME_QUERY = "SELECT * FROM hero WHERE name ILIKE :name";
+
+        public List<Hero> findByName(String name) {
+                final Map<String, Object> params = Map.of("name", "%" + name + "%");
+                return namedParameterJdbcTemplate.query(FIND_HEROES_BY_NAME_QUERY, params, heroRowMapper());
         }
 }

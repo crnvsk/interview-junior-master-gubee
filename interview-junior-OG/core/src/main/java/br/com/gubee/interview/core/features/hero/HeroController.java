@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
@@ -27,8 +28,7 @@ public class HeroController {
     private final HeroService heroService;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> create(@Validated
-                                       @RequestBody CreateHeroRequest createHeroRequest) {
+    public ResponseEntity<Void> create(@Validated @RequestBody CreateHeroRequest createHeroRequest) {
         final UUID id = heroService.create(createHeroRequest);
         return created(URI.create(format("/api/v1/heroes/%s", id))).build();
     }
@@ -38,5 +38,14 @@ public class HeroController {
         return heroService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping
+    public ResponseEntity<?> findByName(@RequestParam String name) {
+        var heroes = heroService.findByName(name);
+        if (heroes.isEmpty()) {
+            return ResponseEntity.ok().body(heroes); // Retorna 200 com corpo vazio
+        }
+        return ResponseEntity.ok(heroes);
     }
 }
