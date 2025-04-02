@@ -68,4 +68,13 @@ public class HeroController {
         }
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/compare")
+    public ResponseEntity<?> compareHeroes(@RequestParam UUID hero1Id, @RequestParam UUID hero2Id) {
+        var comparisonResult = heroService.compareHeroes(hero1Id, hero2Id);
+        if (comparisonResult == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(comparisonResult);
+    }
 }

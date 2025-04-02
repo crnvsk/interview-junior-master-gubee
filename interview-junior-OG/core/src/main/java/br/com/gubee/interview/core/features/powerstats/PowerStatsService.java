@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,5 +17,9 @@ public class PowerStatsService {
     @Transactional
     public UUID create(PowerStats powerStats) {
         return powerStatsRepository.create(powerStats);
+    }
+
+    public Optional<PowerStats> findById(UUID id) {
+        return powerStatsRepository.findById(id);
     }
 }
