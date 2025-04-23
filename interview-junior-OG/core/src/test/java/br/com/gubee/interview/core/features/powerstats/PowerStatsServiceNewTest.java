@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import br.com.gubee.interview.model.PowerStats;
 
-public class PowerStatsServiceTestNew {
+public class PowerStatsServiceNewTest {
     private InMemoryPowerStatsService powerStatsService;
     private InMemoryPowerStatsRepository powerStatsRepository;
 

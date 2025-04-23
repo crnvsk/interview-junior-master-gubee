@@ -19,7 +19,7 @@ import br.com.gubee.interview.model.Hero;
 import br.com.gubee.interview.model.enums.Race;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 
-public class HeroServiceTestNew {
+public class HeroServiceNewTest {
     private HeroService heroService;
     private InMemoryHeroRepository heroRepository;
     private InMemoryPowerStatsRepository powerStatsRepository;
