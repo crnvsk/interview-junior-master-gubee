@@ -16,6 +16,7 @@ public class PowerStatsService {
 
     @Transactional
     public UUID create(PowerStats powerStats) {
+        validatePowerStats(powerStats);
         return powerStatsRepository.create(powerStats);
     }
 
@@ -26,5 +27,12 @@ public class PowerStatsService {
     @Transactional
     public void delete(UUID id) {
         powerStatsRepository.delete(id);
+    }
+
+    private void validatePowerStats(PowerStats powerStats) {
+        if (powerStats.getStrength() < 0 || powerStats.getAgility() < 0 ||
+                powerStats.getDexterity() < 0 || powerStats.getIntelligence() < 0) {
+            throw new IllegalArgumentException("PowerStats values cannot be negative.");
+        }
     }
 }

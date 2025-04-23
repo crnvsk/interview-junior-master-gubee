@@ -13,22 +13,24 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import br.com.gubee.interview.core.features.powerstats.InMemoryPowerStatsRepository;
 import br.com.gubee.interview.core.features.powerstats.InMemoryPowerStatsService;
 import br.com.gubee.interview.model.Hero;
 import br.com.gubee.interview.model.enums.Race;
 import br.com.gubee.interview.model.request.CreateHeroRequest;
 
 public class HeroServiceTestNew {
-
-    HeroService heroService;
-    InMemoryHeroRepository heroRepository;
-    InMemoryPowerStatsService powerStatsService;
+    private HeroService heroService;
+    private InMemoryHeroRepository heroRepository;
+    private InMemoryPowerStatsRepository powerStatsRepository;
+    private InMemoryPowerStatsService powerStatsService;
 
     @BeforeEach
     public void setUp() {
-        heroRepository = new InMemoryHeroRepository();
-        powerStatsService = new InMemoryPowerStatsService();
-        heroService = new HeroService(heroRepository, powerStatsService);
+        this.heroRepository = new InMemoryHeroRepository();
+        this.powerStatsRepository = new InMemoryPowerStatsRepository();
+        this.powerStatsService = new InMemoryPowerStatsService(powerStatsRepository);
+        this.heroService = new HeroService(heroRepository, powerStatsService);
     }
 
     @Test

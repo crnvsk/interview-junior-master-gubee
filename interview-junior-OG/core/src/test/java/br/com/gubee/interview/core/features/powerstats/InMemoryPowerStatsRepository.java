@@ -24,4 +24,9 @@ public class InMemoryPowerStatsRepository extends PowerStatsRepository {
     public Optional<PowerStats> findById(UUID id) {
         return Optional.ofNullable(database.get(id));
     }
+
+    @Override
+    public void delete(UUID id) {
+        database.remove(id);
+    }
 }
