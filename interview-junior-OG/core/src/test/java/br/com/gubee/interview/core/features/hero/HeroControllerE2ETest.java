@@ -30,7 +30,6 @@ public class HeroControllerE2ETest {
 
     @Test
     void createAndFindHeroById() {
-        // Arrange
         CreateHeroRequest request = CreateHeroRequest.builder()
                 .name("Superman")
                 .race(Race.ALIEN)
@@ -44,20 +43,16 @@ public class HeroControllerE2ETest {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<CreateHeroRequest> entity = new HttpEntity<>(request, headers);
 
-        // Act - Create Hero
         ResponseEntity<Void> createResponse = restTemplate.postForEntity(baseUrl(), entity, Void.class);
 
-        // Assert - Create Hero
         assertEquals(HttpStatus.CREATED, createResponse.getStatusCode());
         String location = createResponse.getHeaders().getLocation().toString();
         assertNotNull(location);
 
-        // Act - Find Hero by ID
         ResponseEntity<Hero> findResponse = restTemplate.getForEntity(location, Hero.class);
-
-        // Assert - Find Hero by ID
         assertEquals(HttpStatus.OK, findResponse.getStatusCode());
         Hero hero = findResponse.getBody();
+
         assertNotNull(hero);
         assertEquals("Superman", hero.getName());
         assertEquals(Race.ALIEN, hero.getRace());
@@ -65,7 +60,6 @@ public class HeroControllerE2ETest {
 
     @Test
     void findHeroesByName() {
-        // Arrange
         CreateHeroRequest request1 = CreateHeroRequest.builder()
                 .name("Flash")
                 .race(Race.HUMAN)
@@ -90,10 +84,8 @@ public class HeroControllerE2ETest {
         restTemplate.postForEntity(baseUrl(), new HttpEntity<>(request1, headers), Void.class);
         restTemplate.postForEntity(baseUrl(), new HttpEntity<>(request2, headers), Void.class);
 
-        // Act
         ResponseEntity<Hero[]> response = restTemplate.getForEntity(baseUrl() + "?name=Flash", Hero[].class);
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         Hero[] heroes = response.getBody();
         assertNotNull(heroes);
@@ -102,7 +94,6 @@ public class HeroControllerE2ETest {
 
     @Test
     void deleteHero() {
-        // Arrange
         CreateHeroRequest request = CreateHeroRequest.builder()
                 .name("Batman")
                 .race(Race.HUMAN)
@@ -119,19 +110,15 @@ public class HeroControllerE2ETest {
         ResponseEntity<Void> createResponse = restTemplate.postForEntity(baseUrl(), entity, Void.class);
         String location = createResponse.getHeaders().getLocation().toString();
 
-        // Act - Delete Hero
         restTemplate.delete(location);
 
-        // Act - Verify Deletion
         ResponseEntity<Hero> findResponse = restTemplate.getForEntity(location, Hero.class);
 
-        // Assert
         assertEquals(HttpStatus.NOT_FOUND, findResponse.getStatusCode());
     }
 
     @Test
     void compareHeroes() {
-        // Arrange
         CreateHeroRequest hero1 = CreateHeroRequest.builder()
                 .name("Hero1")
                 .race(Race.HUMAN)
@@ -158,14 +145,12 @@ public class HeroControllerE2ETest {
         UUID hero2Id = UUID.fromString(restTemplate.postForEntity(baseUrl(), new HttpEntity<>(hero2, headers), Void.class)
                 .getHeaders().getLocation().toString().split("/")[5]);
 
-        // Act
         ResponseEntity<Map> response = restTemplate.postForEntity(
                 baseUrl() + "/compare?hero1Id=" + hero1Id + "&hero2Id=" + hero2Id,
                 null,
                 Map.class
         );
 
-        // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
         @SuppressWarnings("unchecked")
         Map<String, Object> comparisonResult = response.getBody();

@@ -23,7 +23,13 @@ public class HeroService {
 
     @Transactional
     public UUID create(CreateHeroRequest createHeroRequest) {
-        UUID powerStatsId = generatePowerStatsId(createHeroRequest);
+        PowerStats powerStats = PowerStats.builder()
+                .strength(createHeroRequest.getStrength())
+                .agility(createHeroRequest.getAgility())
+                .dexterity(createHeroRequest.getDexterity())
+                .intelligence(createHeroRequest.getIntelligence())
+                .build();
+        UUID powerStatsId = powerStatsService.create(powerStats);
 
         Hero hero = new Hero(createHeroRequest, powerStatsId);
 
@@ -32,14 +38,6 @@ public class HeroService {
 
     public Optional<Hero> findById(UUID id) {
         return heroRepository.findById(id);
-    }
-
-    private UUID generatePowerStatsId(CreateHeroRequest createHeroRequest) {
-        String combinedStats = createHeroRequest.getStrength() + "-" +
-                createHeroRequest.getAgility() + "-" +
-                createHeroRequest.getDexterity() + "-" +
-                createHeroRequest.getIntelligence();
-        return UUID.nameUUIDFromBytes(combinedStats.getBytes());
     }
 
     public List<Hero> findByName(String name) {
@@ -71,19 +69,17 @@ public class HeroService {
         Optional<Hero> hero2 = heroRepository.findById(hero2Id);
 
         if (hero1.isEmpty() || hero2.isEmpty()) {
-            return null; // Retorna null se algum herói não for encontrado
+            return null;
         }
 
         Hero h1 = hero1.get();
         Hero h2 = hero2.get();
 
-        // Obtenha os PowerStats de cada herói
         PowerStats stats1 = powerStatsService.findById(h1.getPowerStatsId())
                 .orElseThrow(() -> new NoSuchElementException("PowerStats not found for ID: " + h1.getPowerStatsId()));
         PowerStats stats2 = powerStatsService.findById(h2.getPowerStatsId())
                 .orElseThrow(() -> new NoSuchElementException("PowerStats not found for ID: " + h2.getPowerStatsId()));
 
-        // Calcula a diferença dos atributos
         Map<String, Object> comparisonResult = Map.of(
                 "hero1Id", h1.getId(),
                 "hero2Id", h2.getId(),

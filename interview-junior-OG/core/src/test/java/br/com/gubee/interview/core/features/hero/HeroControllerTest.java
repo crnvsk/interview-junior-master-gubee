@@ -39,16 +39,12 @@ class HeroControllerTest {
 
     @Test
     void createAHeroWithAllRequiredArguments() throws Exception {
-        //given
-        // Convert the hero request into a string JSON format stub.
         final String body = objectMapper.writeValueAsString(createHeroRequest());
 
-        //when
         final ResultActions resultActions = mockMvc.perform(post("/api/v1/heroes")
             .contentType(MediaType.APPLICATION_JSON)
             .content(body));
 
-        //then
         resultActions.andExpect(status().isCreated()).andExpect(header().exists("Location"));
         verify(heroService, times(1)).create(any());
     }
