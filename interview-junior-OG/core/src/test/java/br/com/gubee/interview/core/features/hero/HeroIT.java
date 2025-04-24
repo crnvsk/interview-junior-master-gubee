@@ -25,110 +25,110 @@ import br.com.gubee.interview.model.enums.Race;
 @AutoConfigureMockMvc
 class HeroIT {
 
-    @Autowired
-    private MockMvc mockMvc;
+        @Autowired
+        private MockMvc mockMvc;
 
-    @Autowired
-    private HeroRepository heroRepository;
+        @Autowired
+        private HeroRepository heroRepository;
 
-    @Test
-    void deveCadastrarHeroiComSucesso() throws Exception {
-        String requestBody = """
-                    {
-                        "name": "Superman",
-                        "race": "ALIEN",
-                        "strength": 10,
-                        "agility": 8,
-                        "dexterity": 7,
-                        "intelligence": 9
-                    }
-                """;
+        @Test
+        void deveCadastrarHeroiComSucesso() throws Exception {
+                String requestBody = """
+                                    {
+                                        "name": "Superman",
+                                        "race": "ALIEN",
+                                        "strength": 10,
+                                        "agility": 8,
+                                        "dexterity": 7,
+                                        "intelligence": 9
+                                    }
+                                """;
 
-        mockMvc.perform(post("/api/v1/heroes")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(requestBody))
-                .andExpect(status().isCreated());
+                mockMvc.perform(post("/api/v1/heroes")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(requestBody))
+                                .andExpect(status().isCreated());
 
-        assertTrue(heroRepository.findByName("Superman").size() > 0);
-    }
+                assertTrue(heroRepository.findByName("Superman").size() > 0);
+        }
 
-    @Test
-    void deveRetornarHeroiPorId() throws Exception {
-        UUID heroId = heroRepository.create(Hero.builder()
-                .name("Batman")
-                .race(Race.HUMAN)
-                .powerStatsId(UUID.randomUUID())
-                .build());
-        
-        Hero hero = heroRepository.findById(heroId).orElseThrow();
+        @Test
+        void deveRetornarHeroiPorId() throws Exception {
+                UUID heroId = heroRepository.create(Hero.builder()
+                                .name("Batman")
+                                .race(Race.HUMAN)
+                                .powerStatsId(UUID.randomUUID())
+                                .build());
 
-        mockMvc.perform(get("/api/v1/heroes/" + hero.getId()))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("Batman"));
-    }
+                Hero hero = heroRepository.findById(heroId).orElseThrow();
 
-    @Test
-    void deveAtualizarHeroi() throws Exception {
-        UUID heroId = heroRepository.create(Hero.builder()
-                .name("Flash")
-                .race(Race.HUMAN)
-                .powerStatsId(UUID.randomUUID())
-                .build());
+                mockMvc.perform(get("/api/v1/heroes/" + hero.getId()))
+                                .andExpect(status().isOk())
+                                .andExpect(jsonPath("$.name").value("Batman"));
+        }
 
-        Hero hero = heroRepository.findById(heroId).orElseThrow();
+        @Test
+        void deveAtualizarHeroi() throws Exception {
+                UUID heroId = heroRepository.create(Hero.builder()
+                                .name("Flash")
+                                .race(Race.HUMAN)
+                                .powerStatsId(UUID.randomUUID())
+                                .build());
 
-        String updateRequest = """
-                    {
-                        "name": "Flash Updated",
-                        "race": "HUMAN"
-                    }
-                """;
+                Hero hero = heroRepository.findById(heroId).orElseThrow();
 
-        mockMvc.perform(put("/api/v1/heroes/" + hero.getId())
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(updateRequest))
-                .andExpect(status().isNoContent());
+                String updateRequest = """
+                                    {
+                                        "name": "Flash Updated",
+                                        "race": "HUMAN"
+                                    }
+                                """;
 
-        Hero updatedHero = heroRepository.findById(hero.getId()).orElseThrow();
-        assertEquals("Flash Updated", updatedHero.getName());
-    }
+                mockMvc.perform(put("/api/v1/heroes/" + hero.getId())
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(updateRequest))
+                                .andExpect(status().isNoContent());
 
-    @Test
-    void deveDeletarHeroi() throws Exception {
-        UUID heroId = heroRepository.create(Hero.builder()
-                .name("Green Lantern")
-                .race(Race.HUMAN)
-                .powerStatsId(UUID.randomUUID())
-                .build());
-        
-        Hero hero = heroRepository.findById(heroId).orElseThrow();
+                Hero updatedHero = heroRepository.findById(hero.getId()).orElseThrow();
+                assertEquals("Flash Updated", updatedHero.getName());
+        }
 
-        mockMvc.perform(delete("/api/v1/heroes/" + hero.getId()))
-                .andExpect(status().isNoContent());
+        @Test
+        void deveDeletarHeroi() throws Exception {
+                UUID heroId = heroRepository.create(Hero.builder()
+                                .name("Green Lantern")
+                                .race(Race.HUMAN)
+                                .powerStatsId(UUID.randomUUID())
+                                .build());
 
-        assertTrue(heroRepository.findById(hero.getId()).isEmpty());
-    }
+                Hero hero = heroRepository.findById(heroId).orElseThrow();
 
-    @Test
-    void deveCompararHerois() throws Exception {
-        UUID hero1Id = heroRepository.create(Hero.builder()
-                .name("Aquaman")
-                .race(Race.HUMAN)
-                .powerStatsId(UUID.randomUUID())
-                .build());
+                mockMvc.perform(delete("/api/v1/heroes/" + hero.getId()))
+                                .andExpect(status().isNoContent());
 
-        UUID hero2Id = heroRepository.create(Hero.builder()
-                .name("Flash")
-                .race(Race.HUMAN)
-                .powerStatsId(UUID.randomUUID())
-                .build());
-        Hero hero1 = heroRepository.findById(hero1Id).orElseThrow();
-        Hero hero2 = heroRepository.findById(hero2Id).orElseThrow();
+                assertTrue(heroRepository.findById(hero.getId()).isEmpty());
+        }
 
-        mockMvc.perform(post("/api/v1/heroes/compare")
-                .param("hero1Id", hero1.getId().toString())
-                .param("hero2Id", hero2.getId().toString()))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.strengthDifference").exists());
-    }
+        @Test
+        void deveCompararHerois() throws Exception {
+                UUID hero1Id = heroRepository.create(Hero.builder()
+                                .name("Aquaman")
+                                .race(Race.HUMAN)
+                                .powerStatsId(UUID.randomUUID())
+                                .build());
+
+                UUID hero2Id = heroRepository.create(Hero.builder()
+                                .name("Flash")
+                                .race(Race.HUMAN)
+                                .powerStatsId(UUID.randomUUID())
+                                .build());
+                Hero hero1 = heroRepository.findById(hero1Id).orElseThrow();
+                Hero hero2 = heroRepository.findById(hero2Id).orElseThrow();
+
+                mockMvc.perform(post("/api/v1/heroes/compare")
+                                .param("hero1Id", hero1.getId().toString())
+                                .param("hero2Id", hero2.getId().toString()))
+                                .andExpect(status().isOk())
+                                .andExpect(jsonPath("$.strengthDifference").exists());
+        }
 }

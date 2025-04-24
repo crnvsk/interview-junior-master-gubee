@@ -43,7 +43,7 @@ public class HeroServiceNewTest {
                 .dexterity(7)
                 .intelligence(9)
                 .build();
-        
+
         UUID heroId = heroService.create(request);
         assertNotNull(heroId);
         Hero hero = heroRepository.findById(heroId).orElse(null);
@@ -78,7 +78,7 @@ public class HeroServiceNewTest {
                 .dexterity(6)
                 .intelligence(9)
                 .build());
-        
+
         Optional<Hero> hero = heroService.findById(heroId);
         assertTrue(hero.isPresent());
         assertEquals("Batman", hero.get().getName());
@@ -104,24 +104,24 @@ public class HeroServiceNewTest {
                 .build());
 
         List<Hero> heroes = heroService.findByName("Flash");
-    
+
         assertNotNull(heroes);
 
         for (Hero hero : heroes) {
             assertEquals("Flash", hero.getName());
         }
-   }
+    }
 
-   @Test
-   void encontrarHeroiPorNomeInexistenteDeveRetornarListaVazia() {
-       List<Hero> heroes = heroService.findByName("Inexistente");
-       assertNotNull(heroes);
-       assertTrue(heroes.isEmpty());
-   }
+    @Test
+    void encontrarHeroiPorNomeInexistenteDeveRetornarListaVazia() {
+        List<Hero> heroes = heroService.findByName("Inexistente");
+        assertNotNull(heroes);
+        assertTrue(heroes.isEmpty());
+    }
 
-   @Test
-   void atualizarHeroiExistenteDeveRetornarTrue() {
-       UUID heroId = heroService.create(CreateHeroRequest.builder()
+    @Test
+    void atualizarHeroiExistenteDeveRetornarTrue() {
+        UUID heroId = heroService.create(CreateHeroRequest.builder()
                 .name("Aquaman")
                 .race(Race.HUMAN)
                 .strength(9)
@@ -129,64 +129,64 @@ public class HeroServiceNewTest {
                 .dexterity(7)
                 .intelligence(8)
                 .build());
-        
+
         Hero updatedHero = Hero.builder()
                 .name("Aquaman Updated")
                 .race(Race.HUMAN)
                 .build();
-        
+
         boolean result = heroService.updateHero(heroId, updatedHero);
         assertTrue(result);
         Hero hero = heroRepository.findById(heroId).orElse(null);
         assertNotNull(hero);
         assertEquals("Aquaman Updated", hero.getName());
-   }
-   
-   @Test
-   void atualizarHeroiInexistenteDeveRetornarFalse() {
-       UUID heroId = UUID.randomUUID();
-       Hero updatedHero = Hero.builder()
-               .name("Inexistente")
-               .build();
-       boolean result = heroService.updateHero(heroId, updatedHero);
+    }
+
+    @Test
+    void atualizarHeroiInexistenteDeveRetornarFalse() {
+        UUID heroId = UUID.randomUUID();
+        Hero updatedHero = Hero.builder()
+                .name("Inexistente")
+                .build();
+        boolean result = heroService.updateHero(heroId, updatedHero);
         assertTrue(!result);
-   }
+    }
 
-   @Test
-   void deletarHeroiExistenteDeveRetornarTrue() {
-       UUID heroId = heroService.create(CreateHeroRequest.builder()
-               .name("Green Lantern")
-               .build());
-       boolean result = heroService.deleteHero(heroId);
-       assertTrue(result);
-   }
+    @Test
+    void deletarHeroiExistenteDeveRetornarTrue() {
+        UUID heroId = heroService.create(CreateHeroRequest.builder()
+                .name("Green Lantern")
+                .build());
+        boolean result = heroService.deleteHero(heroId);
+        assertTrue(result);
+    }
 
-   @Test
-   void deletarHeroiInexistenteDeveRetornarFalse() {
-       UUID heroId = UUID.randomUUID();
-       boolean result = heroService.deleteHero(heroId);
-       assertTrue(!result);
-   }
+    @Test
+    void deletarHeroiInexistenteDeveRetornarFalse() {
+        UUID heroId = UUID.randomUUID();
+        boolean result = heroService.deleteHero(heroId);
+        assertTrue(!result);
+    }
 
-   @Test
-   void  compararHeroisExistentesDeveRetornarComparacao() {
-       UUID hero1Id = heroService.create(CreateHeroRequest.builder()
-            .name("Aquaman")
-            .race(Race.HUMAN)
-            .strength(10)
-            .agility(8)
-            .dexterity(7)
-            .intelligence(7)
-            .build());
-        
+    @Test
+    void compararHeroisExistentesDeveRetornarComparacao() {
+        UUID hero1Id = heroService.create(CreateHeroRequest.builder()
+                .name("Aquaman")
+                .race(Race.HUMAN)
+                .strength(10)
+                .agility(8)
+                .dexterity(7)
+                .intelligence(7)
+                .build());
+
         UUID hero2Id = heroService.create(CreateHeroRequest.builder()
-            .name("Flash")
-            .race(Race.HUMAN)
-            .strength(8)
-            .agility(10)
-            .dexterity(7)
-            .intelligence(8)
-            .build());
+                .name("Flash")
+                .race(Race.HUMAN)
+                .strength(8)
+                .agility(10)
+                .dexterity(7)
+                .intelligence(8)
+                .build());
 
         Map<String, Object> comparacao = heroService.compareHeroes(hero1Id, hero2Id);
 
@@ -195,14 +195,13 @@ public class HeroServiceNewTest {
         assertEquals(-2, comparacao.get("agilityDifference"));
         assertEquals(0, comparacao.get("dexterityDifference"));
         assertEquals(-1, comparacao.get("intelligenceDifference"));
-   }
+    }
 
-   @Test
+    @Test
     void compararHeroisInexistentesDeveRetornarNulo() {
-         UUID hero1Id = UUID.randomUUID();
-         UUID hero2Id = UUID.randomUUID();
-         Map<String, Object> comparacao = heroService.compareHeroes(hero1Id, hero2Id);
-         assertNull(comparacao);
+        UUID hero1Id = UUID.randomUUID();
+        UUID hero2Id = UUID.randomUUID();
+        Map<String, Object> comparacao = heroService.compareHeroes(hero1Id, hero2Id);
+        assertNull(comparacao);
     }
 }
-    
