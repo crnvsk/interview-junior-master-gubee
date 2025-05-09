@@ -10,7 +10,7 @@ import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.com.gubee.interview.model.PowerStats;
+import br.com.gubee.interview.core.domain.PowerStats;
 
 public class PowerStatsServiceNewTest {
     private InMemoryPowerStatsService powerStatsService;

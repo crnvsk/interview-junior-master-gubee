@@ -1,33 +1,31 @@
-package br.com.gubee.interview.core.features.powerstats;
+package br.com.gubee.interview.core.application.powerstats;
 
 import br.com.gubee.interview.core.adapters.persistence.PowerStatsRepository;
-import br.com.gubee.interview.core.application.powerstats.PowerStatsService;
 import br.com.gubee.interview.core.domain.PowerStats;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 import java.util.UUID;
+import java.util.Optional;
 
-public class InMemoryPowerStatsService extends PowerStatsService {
+@Service
+@RequiredArgsConstructor
+public class PowerStatsService {
 
     private final PowerStatsRepository powerStatsRepository;
 
-    public InMemoryPowerStatsService(PowerStatsRepository powerStatsRepository) {
-        super(powerStatsRepository);
-        this.powerStatsRepository = powerStatsRepository;
-    }
-
-    @Override
+    @Transactional
     public UUID create(PowerStats powerStats) {
         validatePowerStats(powerStats);
         return powerStatsRepository.create(powerStats);
     }
 
-    @Override
     public Optional<PowerStats> findById(UUID id) {
         return powerStatsRepository.findById(id);
     }
 
-    @Override
+    @Transactional
     public void delete(UUID id) {
         powerStatsRepository.delete(id);
     }

@@ -1,10 +1,12 @@
 package br.com.gubee.interview.core.features.hero;
 
-import br.com.gubee.interview.model.Hero;
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.UUID;
+
+import br.com.gubee.interview.core.adapters.persistence.HeroRepository;
+import br.com.gubee.interview.core.domain.Hero;
+
 import java.util.Optional;
 import java.util.List;
 import java.util.ArrayList;

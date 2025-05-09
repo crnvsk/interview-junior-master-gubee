@@ -13,11 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import br.com.gubee.interview.core.application.hero.HeroService;
+import br.com.gubee.interview.core.domain.Hero;
+import br.com.gubee.interview.core.domain.enums.Race;
 import br.com.gubee.interview.core.features.powerstats.InMemoryPowerStatsRepository;
 import br.com.gubee.interview.core.features.powerstats.InMemoryPowerStatsService;
-import br.com.gubee.interview.model.Hero;
-import br.com.gubee.interview.model.enums.Race;
-import br.com.gubee.interview.model.request.CreateHeroRequest;
+import br.com.gubee.interview.core.web.dtos.CreateHeroRequest;
 
 public class HeroServiceNewTest {
     private HeroService heroService;

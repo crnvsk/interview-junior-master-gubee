@@ -1,8 +1,9 @@
 package br.com.gubee.interview.core.features.powerstats;
 
-import br.com.gubee.interview.model.PowerStats;
-
 import java.util.*;
+
+import br.com.gubee.interview.core.adapters.persistence.PowerStatsRepository;
+import br.com.gubee.interview.core.domain.PowerStats;
 
 public class InMemoryPowerStatsRepository extends PowerStatsRepository {
 

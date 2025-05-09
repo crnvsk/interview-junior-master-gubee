@@ -18,8 +18,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import br.com.gubee.interview.model.Hero;
-import br.com.gubee.interview.model.enums.Race;
+import br.com.gubee.interview.core.adapters.persistence.HeroRepository;
+import br.com.gubee.interview.core.domain.Hero;
+import br.com.gubee.interview.core.domain.enums.Race;
 
 @SpringBootTest
 @AutoConfigureMockMvc
