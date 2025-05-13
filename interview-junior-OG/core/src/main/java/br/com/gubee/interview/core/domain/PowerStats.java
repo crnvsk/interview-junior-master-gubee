@@ -32,4 +32,26 @@ public class PowerStats {
         this.dexterity = createHeroRequest.getDexterity();
         this.intelligence = createHeroRequest.getIntelligence();
     }
+
+    public int calculateTotalPower() {
+        return strength + agility + dexterity + intelligence;
+    }
+
+    public static class PowerStatsBuilder {
+        public PowerStats build() {
+            if (strength < 0) {
+                throw new IllegalArgumentException("Strength cannot be negative");
+            }
+            if (agility < 0) {
+                throw new IllegalArgumentException("Agility cannot be negative");
+            }
+            if (dexterity < 0) {
+                throw new IllegalArgumentException("Dexterity cannot be negative");
+            }
+            if (intelligence < 0) {
+                throw new IllegalArgumentException("Intelligence cannot be negative");
+            }
+            return new PowerStats(id, strength, agility, dexterity, intelligence, createdAt, updatedAt);
+        }
+    }
 }

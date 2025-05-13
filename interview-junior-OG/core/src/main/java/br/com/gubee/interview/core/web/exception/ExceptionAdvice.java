@@ -77,7 +77,7 @@ public class ExceptionAdvice {
         }
         if (e.getStatusCode().is4xxClientError()) {
             final String errorMessage = e.getResponseBodyAsString();
-            if (!StringUtils.isEmpty(errorMessage)) {
+            if (StringUtils.hasLength(errorMessage)) {
                 log.warn(errorMessage);
             }
         }

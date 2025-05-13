@@ -31,4 +31,13 @@ public class Hero {
         this.race = createHeroRequest.getRace();
         this.powerStatsId = powerStatsId;
     }
+
+    public static class HeroBuilder {
+        public Hero build() {
+            if (name == null || name.isBlank()) {
+                throw new IllegalArgumentException("Name cannot be null");
+            }
+            return new Hero(id, name, race, powerStatsId, createdAt, updatedAt, enabled);
+        }
+    }
 }
