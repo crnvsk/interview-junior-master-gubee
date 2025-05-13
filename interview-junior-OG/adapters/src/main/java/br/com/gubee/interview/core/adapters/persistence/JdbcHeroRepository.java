@@ -3,7 +3,9 @@ package br.com.gubee.interview.core.adapters.persistence;
 import br.com.gubee.interview.core.domain.Hero;
 import br.com.gubee.interview.core.domain.enums.Race;
 import br.com.gubee.interview.core.application.ports.repositories.HeroRepository;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -20,14 +22,18 @@ public class JdbcHeroRepository implements HeroRepository {
 
     @Override
     public UUID create(Hero hero) {
+        UUID id = UUID.randomUUID();
         final Map<String, Object> params = Map.of(
+                "id", id,
                 "name", hero.getName(),
                 "race", hero.getRace().name(),
                 "powerStatsId", hero.getPowerStatsId());
-        return namedParameterJdbcTemplate.queryForObject(
-                "INSERT INTO hero (name, race, power_stats_id) VALUES (:name, :race, :powerStatsId) RETURNING id",
-                params,
-                UUID.class);
+
+        namedParameterJdbcTemplate.update(
+                "INSERT INTO hero (id, name, race, power_stats_id) VALUES (:id, :name, :race, :powerStatsId)",
+                params);
+
+        return id;
     }
 
     @Override
@@ -74,4 +80,4 @@ public class JdbcHeroRepository implements HeroRepository {
                 .powerStatsId(UUID.fromString(rs.getString("power_stats_id")))
                 .build();
     }
-}
+} 

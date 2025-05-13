@@ -2,7 +2,9 @@ package br.com.gubee.interview.core.adapters.persistence;
 
 import br.com.gubee.interview.core.domain.PowerStats;
 import br.com.gubee.interview.core.application.ports.repositories.PowerStatsRepository;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -18,16 +20,22 @@ public class JdbcPowerStatsRepository implements PowerStatsRepository {
 
     @Override
     public UUID create(PowerStats powerStats) {
+        UUID id = UUID.randomUUID();
         final Map<String, Object> params = Map.of(
+                "id", id,
                 "strength", powerStats.getStrength(),
                 "agility", powerStats.getAgility(),
                 "dexterity", powerStats.getDexterity(),
-                "intelligence", powerStats.getIntelligence());
-        return namedParameterJdbcTemplate.queryForObject(
-                "INSERT INTO power_stats (strength, agility, dexterity, intelligence) " +
-                        "VALUES (:strength, :agility, :dexterity, :intelligence) RETURNING id",
-                params,
-                UUID.class);
+                "intelligence", powerStats.getIntelligence()
+        );
+
+        namedParameterJdbcTemplate.update(
+                "INSERT INTO power_stats (id, strength, agility, dexterity, intelligence) " +
+                        "VALUES (:id, :strength, :agility, :dexterity, :intelligence)",
+                params
+        );
+
+        return id;
     }
 
     @Override
