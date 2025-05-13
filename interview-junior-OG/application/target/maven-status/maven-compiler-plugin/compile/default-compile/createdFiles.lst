@@ -1,0 +1,12 @@
+br\com\gubee\interview\core\application\ports\repositories\HeroRepository.class
+br\com\gubee\interview\core\application\hero\commands\UpdateHeroCommand.class
+br\com\gubee\interview\core\application\hero\queries\FindHeroByIdQuery.class
+br\com\gubee\interview\core\application\hero\commands\CompareHeroesCommand.class
+br\com\gubee\interview\core\application\hero\queries\FindHeroByNameQuery.class
+br\com\gubee\interview\core\application\hero\commands\CreateHeroCommand.class
+br\com\gubee\interview\core\application\hero\commands\DeleteHeroCommand.class
+br\com\gubee\interview\core\application\powerstats\commands\CreatePowerStatsCommand.class
+br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQuery.class
+br\com\gubee\interview\core\application\ports\repositories\PowerStatsRepository.class
+br\com\gubee\interview\core\application\powerstats\commands\DeletePowerStatsCommand.class
+br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQueryImpl.class

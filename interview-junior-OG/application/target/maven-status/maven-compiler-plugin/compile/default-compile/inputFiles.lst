@@ -1,0 +1,12 @@
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\hero\commands\DeleteHeroCommand.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\powerstats\commands\DeletePowerStatsCommand.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\ports\repositories\PowerStatsRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\hero\commands\CompareHeroesCommand.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\ports\repositories\HeroRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQueryImpl.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\hero\commands\CreateHeroCommand.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\hero\queries\FindHeroByNameQuery.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQuery.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\powerstats\commands\CreatePowerStatsCommand.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\hero\queries\FindHeroByIdQuery.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\main\java\br\com\gubee\interview\core\application\hero\commands\UpdateHeroCommand.java

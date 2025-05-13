@@ -1,0 +1,5 @@
+br\com\gubee\interview\core\domain\Hero.class
+br\com\gubee\interview\core\domain\PowerStats.class
+br\com\gubee\interview\core\domain\enums\Race.class
+br\com\gubee\interview\core\domain\Hero$HeroBuilder.class
+br\com\gubee\interview\core\domain\PowerStats$PowerStatsBuilder.class

@@ -1,0 +1,15 @@
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\hero\commands\CreateHeroCommandTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\helpers\HeroTestDataBuilder.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\powerstats\commands\DeletePowerStatsCommandTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQueryTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\hero\commands\DeleteHeroCommandTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\hero\commands\UpdateHeroCommandTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\hero\queries\FindHeroByIdQueryTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\testdoubles\CreatePowerStatsCommandStub.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\testdoubles\FindPowerStatsByIdQueryStub.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\hero\commands\CompareHeroesCommandTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\testdoubles\HeroRepositoryStub.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\powerstats\commands\CreatePowerStatsCommandTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\hero\queries\FindHeroByNameQueryTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\testdoubles\PowerStatsRepositoryStub.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\application\src\test\java\br\com\gubee\interview\core\application\helpers\PowerStatsTestDataBuilder.java
