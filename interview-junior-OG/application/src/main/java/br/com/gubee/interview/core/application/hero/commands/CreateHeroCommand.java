@@ -18,6 +18,13 @@ public class CreateHeroCommand {
     private final CreatePowerStatsCommand createPowerStatsCommand;
 
     public UUID execute(Hero hero, PowerStats powerStats) {
+        if (hero == null) {
+            throw new IllegalArgumentException("Hero cannot be null");
+        }
+        if (powerStats == null) {
+            throw new IllegalArgumentException("PowerStats cannot be null");
+        }
+
         UUID powerStatsId = createPowerStatsCommand.execute(powerStats);
         hero.setPowerStatsId(powerStatsId);
         return heroRepository.create(hero);

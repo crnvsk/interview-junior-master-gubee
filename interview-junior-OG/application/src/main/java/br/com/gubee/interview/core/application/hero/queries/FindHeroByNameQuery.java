@@ -15,6 +15,10 @@ public class FindHeroByNameQuery {
     private final HeroRepository heroRepository;
 
     public List<Hero> execute(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be null or blank");
+        }
+
         return heroRepository.findByName(name);
     }
 }

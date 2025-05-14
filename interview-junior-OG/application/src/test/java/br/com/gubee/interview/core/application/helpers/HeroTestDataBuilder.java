@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class HeroTestDataBuilder {
     private UUID id = UUID.randomUUID();
-    private String name = "Default Hero";
+    private String name = "Test Hero";
     private Race race = Race.HUMAN;
     private UUID powerStatsId = UUID.randomUUID();
 

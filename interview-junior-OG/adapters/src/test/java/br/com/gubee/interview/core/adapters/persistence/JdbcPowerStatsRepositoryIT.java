@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class JdbcPowerStatsRepositoryIT {
 
     private JdbcPowerStatsRepository repository;
+    private NamedParameterJdbcTemplate jdbcTemplate;
 
     @BeforeEach
     void setUp() {
@@ -25,11 +26,14 @@ class JdbcPowerStatsRepositoryIT {
                 "jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE",
                 "sa",
                 "");
-        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
         repository = new JdbcPowerStatsRepository(jdbcTemplate);
 
-        jdbcTemplate.getJdbcTemplate().execute("DROP TABLE IF EXISTS power_stats");
+        resetDatabase();
+    }
 
+    private void resetDatabase() {
+        jdbcTemplate.getJdbcTemplate().execute("DROP TABLE IF EXISTS power_stats");
         jdbcTemplate.getJdbcTemplate().execute("""
                     CREATE TABLE power_stats (
                         id UUID PRIMARY KEY,
@@ -79,6 +83,16 @@ class JdbcPowerStatsRepositoryIT {
 
         repository.delete(powerStatsId);
         Optional<PowerStats> foundPowerStats = repository.findById(powerStatsId);
+
+        assertThat(foundPowerStats).isEmpty();
+    }
+
+    @Test
+    void shouldNotDeleteNonExistentPowerStats() {
+        UUID nonExistentId = UUID.randomUUID();
+
+        repository.delete(nonExistentId);
+        Optional<PowerStats> foundPowerStats = repository.findById(nonExistentId);
 
         assertThat(foundPowerStats).isEmpty();
     }

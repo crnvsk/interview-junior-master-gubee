@@ -16,6 +16,10 @@ public class DeleteHeroCommand {
     private final HeroRepository heroRepository;
 
     public boolean execute(UUID id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Hero ID cannot be null");
+        }
+
         Optional<Hero> existingHero = heroRepository.findById(id);
         if (existingHero.isEmpty()) {
             return false;

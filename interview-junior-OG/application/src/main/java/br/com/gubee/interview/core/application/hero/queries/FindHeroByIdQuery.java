@@ -16,6 +16,10 @@ public class FindHeroByIdQuery {
     private final HeroRepository heroRepository;
 
     public Optional<Hero> execute(UUID id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
+
         return heroRepository.findById(id);
     }
 }

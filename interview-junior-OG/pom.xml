@@ -42,8 +42,8 @@
     <modules>
         <module>domain</module>
         <module>application</module>
-        <module>adapters</module>
         <module>infrastructure</module>
+        <module>adapters</module>
     </modules>
 
     <dependencyManagement>

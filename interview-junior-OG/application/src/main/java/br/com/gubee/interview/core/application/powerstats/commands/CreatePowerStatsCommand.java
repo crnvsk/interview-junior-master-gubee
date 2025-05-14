@@ -17,6 +17,10 @@ public class CreatePowerStatsCommand {
 
     @Transactional
     public UUID execute(PowerStats powerStats) {
+        if (powerStats == null) {
+            throw new IllegalArgumentException("PowerStats cannot be null");
+        }
+
         validatePowerStats(powerStats);
         return powerStatsRepository.create(powerStats);
     }

@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import org.hibernate.validator.constraints.Length;
 
-import br.com.gubee.interview.core.domain.Hero;
-import br.com.gubee.interview.core.domain.PowerStats;
 import br.com.gubee.interview.core.domain.enums.Race;
 
 import javax.validation.constraints.Max;
@@ -17,55 +16,36 @@ import javax.validation.constraints.NotNull;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import java.util.UUID;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = PRIVATE)
 public class CreateHeroRequest {
 
-    @NotBlank(message = "message.name.mandatory")
-    @Length(min = 1, max = 255, message = "message.name.length")
+    @NotBlank(message = "Hero name is mandatory.")
+    @Length(min = 1, max = 255, message = "Hero name must be between 1 and 255 characters.")
     private String name;
 
-    @NotNull(message = "message.race.mandatory")
+    @NotNull(message = "Hero race is mandatory.")
     private Race race;
 
-    @Min(value = 0, message = "message.powerstats.strength.min")
-    @Max(value = 10, message = "message.powerstats.strength.max")
-    @NotNull(message = "message.powerstats.strength.mandatory")
-    private int strength;
+    @Min(value = 0, message = "Strength must be at least 0.")
+    @Max(value = 10, message = "Strength must be at most 10.")
+    @NotNull(message = "Strength is mandatory.")
+    private Integer strength;
 
-    @Min(value = 0, message = "message.powerstats.agility.min")
-    @Max(value = 10, message = "message.powerstats.agility.max")
-    @NotNull(message = "message.powerstats.agility.mandatory")
-    private int agility;
+    @Min(value = 0, message = "Agility must be at least 0.")
+    @Max(value = 10, message = "Agility must be at most 10.")
+    @NotNull(message = "Agility is mandatory.")
+    private Integer agility;
 
-    @Min(value = 0, message = "message.powerstats.dexterity.min")
-    @Max(value = 10, message = "message.powerstats.dexterity.max")
-    @NotNull(message = "message.powerstats.dexterity.mandatory")
-    private int dexterity;
+    @Min(value = 0, message = "Dexterity must be at least 0.")
+    @Max(value = 10, message = "Dexterity must be at most 10.")
+    @NotNull(message = "Dexterity is mandatory.")
+    private Integer dexterity;
 
-    @Min(value = 0, message = "message.powerstats.intelligence.min")
-    @Max(value = 10, message = "message.powerstats.intelligence.max")
-    @NotNull(message = "message.powerstats.intelligence.mandatory")
-    private int intelligence;
-
-    public Hero toHero(UUID powerStatsId) {
-        return Hero.builder()
-                .name(this.name)
-                .race(this.race)
-                .powerStatsId(powerStatsId)
-                .build();
-    }
-
-    public PowerStats toPowerStats() {
-        return PowerStats.builder()
-                .strength(this.strength)
-                .agility(this.agility)
-                .dexterity(this.dexterity)
-                .intelligence(this.intelligence)
-                .build();
-    }
+    @Min(value = 0, message = "Intelligence must be at least 0.")
+    @Max(value = 10, message = "Intelligence must be at most 10.")
+    @NotNull(message = "Intelligence is mandatory.")
+    private Integer intelligence;
 }

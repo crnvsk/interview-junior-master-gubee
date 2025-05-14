@@ -1,7 +1,8 @@
 package br.com.gubee.interview.core.domain.enums;
 
 /**
- * Aqui temos algumas raças de super heróis. A API https://superheroapi.com/ pode ou não conter
+ * Aqui temos algumas raças de super heróis. A API https://superheroapi.com/
+ * pode ou não conter
  * as raças aqui listadas.
  * Em caso de não existirem será necessário adicionar a raça que deseja ao enum.
  */

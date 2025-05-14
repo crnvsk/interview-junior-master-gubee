@@ -1,11 +1,9 @@
-br\com\gubee\interview\core\application\testdoubles\CreatePowerStatsCommandStub.class
 br\com\gubee\interview\core\application\helpers\PowerStatsTestDataBuilder.class
 br\com\gubee\interview\core\application\hero\commands\DeleteHeroCommandTest.class
 br\com\gubee\interview\core\application\powerstats\commands\CreatePowerStatsCommandTest.class
 br\com\gubee\interview\core\application\testdoubles\PowerStatsRepositoryStub.class
 br\com\gubee\interview\core\application\powerstats\commands\DeletePowerStatsCommandTest.class
 br\com\gubee\interview\core\application\hero\queries\FindHeroByNameQueryTest.class
-br\com\gubee\interview\core\application\testdoubles\FindPowerStatsByIdQueryStub.class
 br\com\gubee\interview\core\application\hero\queries\FindHeroByIdQueryTest.class
 br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQueryTest.class
 br\com\gubee\interview\core\application\helpers\HeroTestDataBuilder.class

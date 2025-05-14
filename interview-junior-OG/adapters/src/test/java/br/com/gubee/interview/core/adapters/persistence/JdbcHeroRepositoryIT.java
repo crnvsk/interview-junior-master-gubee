@@ -20,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class JdbcHeroRepositoryIT {
 
     private JdbcHeroRepository repository;
+    private NamedParameterJdbcTemplate jdbcTemplate;
 
     @BeforeEach
     void setUp() {
@@ -27,11 +28,14 @@ class JdbcHeroRepositoryIT {
                 "jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE",
                 "sa",
                 "");
-        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
         repository = new JdbcHeroRepository(jdbcTemplate);
 
-        jdbcTemplate.getJdbcTemplate().execute("DROP TABLE IF EXISTS hero");
+        resetDatabase();
+    }
 
+    private void resetDatabase() {
+        jdbcTemplate.getJdbcTemplate().execute("DROP TABLE IF EXISTS hero");
         jdbcTemplate.getJdbcTemplate().execute("""
                     CREATE TABLE hero (
                         id UUID PRIMARY KEY,
@@ -44,10 +48,9 @@ class JdbcHeroRepositoryIT {
 
     @Test
     void shouldCreateAndFindHeroById() {
-
         Hero hero = Hero.builder()
                 .name("Superman")
-                .race(Race.HUMAN)
+                .race(Race.ALIEN)
                 .powerStatsId(UUID.randomUUID())
                 .build();
 
@@ -56,7 +59,7 @@ class JdbcHeroRepositoryIT {
 
         assertThat(foundHero).isPresent();
         assertThat(foundHero.get().getName()).isEqualTo("Superman");
-        assertThat(foundHero.get().getRace()).isEqualTo(Race.HUMAN);
+        assertThat(foundHero.get().getRace()).isEqualTo(Race.ALIEN);
     }
 
     @Test
@@ -70,7 +73,7 @@ class JdbcHeroRepositoryIT {
     void shouldFindHeroesByName() {
         Hero hero1 = Hero.builder()
                 .name("Superman")
-                .race(Race.HUMAN)
+                .race(Race.ALIEN)
                 .powerStatsId(UUID.randomUUID())
                 .build();
         Hero hero2 = Hero.builder()
@@ -112,6 +115,21 @@ class JdbcHeroRepositoryIT {
     }
 
     @Test
+    void shouldNotUpdateNonExistentHero() {
+        Hero updatedHero = Hero.builder()
+                .id(UUID.randomUUID())
+                .name("Non-existent Hero")
+                .race(Race.HUMAN)
+                .powerStatsId(UUID.randomUUID())
+                .build();
+
+        repository.update(updatedHero.getId(), updatedHero);
+        Optional<Hero> foundHero = repository.findById(updatedHero.getId());
+
+        assertThat(foundHero).isEmpty();
+    }
+
+    @Test
     void shouldDeleteHeroById() {
         Hero hero = Hero.builder()
                 .name("Batman")
@@ -122,6 +140,16 @@ class JdbcHeroRepositoryIT {
 
         repository.delete(heroId);
         Optional<Hero> foundHero = repository.findById(heroId);
+
+        assertThat(foundHero).isEmpty();
+    }
+
+    @Test
+    void shouldNotDeleteNonExistentHero() {
+        UUID nonExistentHeroId = UUID.randomUUID();
+
+        repository.delete(nonExistentHeroId);
+        Optional<Hero> foundHero = repository.findById(nonExistentHeroId);
 
         assertThat(foundHero).isEmpty();
     }

@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "br.com.gubee.interview.core.infrastructure.Application",
+            "projectName": "infrastructure"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Application<interview-core>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

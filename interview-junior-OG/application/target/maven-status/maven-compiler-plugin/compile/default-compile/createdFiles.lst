@@ -9,4 +9,3 @@ br\com\gubee\interview\core\application\powerstats\commands\CreatePowerStatsComm
 br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQuery.class
 br\com\gubee\interview\core\application\ports\repositories\PowerStatsRepository.class
 br\com\gubee\interview\core\application\powerstats\commands\DeletePowerStatsCommand.class
-br\com\gubee\interview\core\application\powerstats\queries\FindPowerStatsByIdQueryImpl.class

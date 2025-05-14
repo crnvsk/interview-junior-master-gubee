@@ -24,10 +24,6 @@ public class PowerStats {
     private Instant createdAt;
     private Instant updatedAt;
 
-    public int calculateTotalPower() {
-        return strength + agility + dexterity + intelligence;
-    }
-
     public static class PowerStatsBuilder {
         public PowerStats build() {
             if (strength < 0) {

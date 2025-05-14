@@ -1,3 +1,3 @@
-br\com\gubee\interview\core\adapters\configuration\JdbcConfiguration.class
-br\com\gubee\interview\core\adapters\configuration\WebConfiguration.class
-br\com\gubee\interview\core\Application.class
+br\com\gubee\interview\core\infrastructure\configuration\WebConfiguration.class
+br\com\gubee\interview\core\infrastructure\Application.class
+br\com\gubee\interview\core\infrastructure\configuration\JdbcConfiguration.class
