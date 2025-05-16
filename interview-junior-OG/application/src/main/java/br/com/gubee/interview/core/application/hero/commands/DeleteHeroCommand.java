@@ -6,6 +6,7 @@ import br.com.gubee.interview.core.application.ports.repositories.HeroRepository
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -15,6 +16,7 @@ import java.util.UUID;
 public class DeleteHeroCommand {
     private final HeroRepository heroRepository;
 
+    @Transactional
     public boolean execute(UUID id) {
         if (id == null) {
             throw new IllegalArgumentException("Hero ID cannot be null");

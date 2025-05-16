@@ -8,10 +8,13 @@ import lombok.RequiredArgsConstructor;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @RequiredArgsConstructor
 public class FindPowerStatsByIdQuery {
     private final PowerStatsRepository powerStatsRepository;
 
+    @Transactional
     public Optional<PowerStats> execute(UUID id) {
         if (id == null) {
             throw new IllegalArgumentException("PowerStats ID cannot be null");

@@ -8,6 +8,7 @@ import br.com.gubee.interview.core.application.powerstats.commands.CreatePowerSt
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ public class CreateHeroCommand {
     private final HeroRepository heroRepository;
     private final CreatePowerStatsCommand createPowerStatsCommand;
 
+    @Transactional
     public UUID execute(Hero hero, PowerStats powerStats) {
         if (hero == null) {
             throw new IllegalArgumentException("Hero cannot be null");

@@ -6,6 +6,7 @@ import br.com.gubee.interview.core.application.ports.repositories.HeroRepository
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -15,6 +16,7 @@ import java.util.UUID;
 public class FindHeroByIdQuery {
     private final HeroRepository heroRepository;
 
+    @Transactional
     public Optional<Hero> execute(UUID id) {
         if (id == null) {
             throw new IllegalArgumentException("ID cannot be null");

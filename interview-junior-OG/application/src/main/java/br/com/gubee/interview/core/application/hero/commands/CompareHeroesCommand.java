@@ -8,6 +8,7 @@ import br.com.gubee.interview.core.application.powerstats.queries.FindPowerStats
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -19,6 +20,7 @@ public class CompareHeroesCommand {
     private final HeroRepository heroRepository;
     private final FindPowerStatsByIdQuery findPowerStatsByIdQuery;
 
+    @Transactional
     public Map<String, Object> execute(UUID hero1Id, UUID hero2Id) {
         if (hero1Id == null || hero2Id == null) {
             throw new IllegalArgumentException("Hero ID cannot be null");

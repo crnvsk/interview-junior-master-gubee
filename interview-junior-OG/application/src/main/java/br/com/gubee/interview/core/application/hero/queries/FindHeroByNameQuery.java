@@ -6,6 +6,7 @@ import br.com.gubee.interview.core.application.ports.repositories.HeroRepository
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class FindHeroByNameQuery {
     private final HeroRepository heroRepository;
 
+    @Transactional
     public List<Hero> execute(String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be null or blank");
