@@ -39,11 +39,6 @@
             <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>gubee</groupId>
-            <artifactId>infrastructure</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
