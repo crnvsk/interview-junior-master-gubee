@@ -1,4 +1,9 @@
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\HeroController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\CompareHeroesController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\CreateHeroController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\DeleteHeroController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\FindHeroByIdController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\FindHeroByNameController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\UpdateHeroController.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\entities\JpaHeroEntity.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\entities\JpaPowerstatsEntity.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\respositories\hero\HeroRepositoryImpl.java

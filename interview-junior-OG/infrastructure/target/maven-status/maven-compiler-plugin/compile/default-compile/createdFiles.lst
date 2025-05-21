@@ -2,4 +2,5 @@ br\com\gubee\interview\core\infrastructure\configuration\WebConfiguration.class
 br\com\gubee\interview\core\infrastructure\Application.class
 br\com\gubee\interview\core\infrastructure\exception\ExceptionAdvice.class
 br\com\gubee\interview\core\infrastructure\configuration\JacksonConfig.class
+br\com\gubee\interview\core\infrastructure\configuration\MapperConfig.class
 br\com\gubee\interview\core\infrastructure\configuration\JdbcTemplateConfig.class

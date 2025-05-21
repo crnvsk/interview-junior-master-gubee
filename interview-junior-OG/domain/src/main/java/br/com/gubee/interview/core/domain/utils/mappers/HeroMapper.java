@@ -10,7 +10,7 @@ import br.com.gubee.interview.core.domain.hero.HeroResponseDTO;
 import br.com.gubee.interview.core.domain.powerstats.Powerstats;
 import br.com.gubee.interview.core.domain.powerstats.PowerstatsDTO;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "default")
 public interface HeroMapper {
 
 	@Mappings({

@@ -1,5 +1,6 @@
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\infrastructure\src\main\java\br\com\gubee\interview\core\infrastructure\Application.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\infrastructure\src\main\java\br\com\gubee\interview\core\infrastructure\configuration\JacksonConfig.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\infrastructure\src\main\java\br\com\gubee\interview\core\infrastructure\configuration\JdbcTemplateConfig.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\infrastructure\src\main\java\br\com\gubee\interview\core\infrastructure\configuration\MapperConfig.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\infrastructure\src\main\java\br\com\gubee\interview\core\infrastructure\configuration\WebConfiguration.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\infrastructure\src\main\java\br\com\gubee\interview\core\infrastructure\exception\ExceptionAdvice.java
