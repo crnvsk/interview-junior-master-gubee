@@ -1,7 +1,9 @@
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\web\dtos\HeroResponse.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\web\mappers\HeroMapper.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\web\controllers\HeroController.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\persistence\JdbcPowerStatsRepository.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\web\exception\ExceptionAdvice.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\web\dtos\CreateHeroRequest.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\persistence\JdbcHeroRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\inbound\controllers\HeroController.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\entities\JpaHeroEntity.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\entities\JpaPowerstatsEntity.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\respositories\hero\HeroRepositoryImpl.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\respositories\hero\JpaHeroRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\respositories\powerstats\JpaPowerstatsRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\outbound\respositories\powerstats\PowerstatsRepositoryImpl.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\utils\mappers\JpaToHeroDomain.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\adapters\src\main\java\br\com\gubee\interview\core\adapters\utils\mappers\JpaToPowerstatsDomain.java

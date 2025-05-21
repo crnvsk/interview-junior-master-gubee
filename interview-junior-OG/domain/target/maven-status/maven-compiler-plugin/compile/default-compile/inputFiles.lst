@@ -1,3 +1,11 @@
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\Hero.java
 C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\enums\Race.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\PowerStats.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\hero\Hero.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\hero\HeroComparisonResponseDTO.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\hero\HeroRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\hero\HeroRequestDTO.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\hero\HeroResponseDTO.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\powerstats\Powerstats.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\powerstats\PowerstatsComparisonResult.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\powerstats\PowerstatsDTO.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\powerstats\PowerstatsRepository.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\main\java\br\com\gubee\interview\core\domain\utils\mappers\HeroMapper.java

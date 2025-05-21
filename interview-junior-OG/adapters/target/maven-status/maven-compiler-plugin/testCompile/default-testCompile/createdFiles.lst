@@ -1,2 +1,8 @@
-br\com\gubee\interview\core\adapters\persistence\JdbcPowerStatsRepositoryIT.class
-br\com\gubee\interview\core\adapters\persistence\JdbcHeroRepositoryIT.class
+br\com\gubee\interview\core\adapters\stubs\JpaPowerstatsRepositoryStub.class
+br\com\gubee\interview\core\adapters\repositories\HeroRepositoryImplTest.class
+br\com\gubee\interview\core\adapters\mappers\JpaToHeroDomainTest.class
+br\com\gubee\interview\core\adapters\stubs\JpaHeroRepositoryStub.class
+br\com\gubee\interview\core\adapters\mappers\JpaToPowerstatsDomainTest.class
+br\com\gubee\interview\core\adapters\repositories\PowerstatsRepositoryImplTest.class
+br\com\gubee\interview\core\adapters\stubs\JpaToHeroDomainStub.class
+br\com\gubee\interview\core\adapters\stubs\JpaToPowerstatsDomainStub.class

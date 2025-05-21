@@ -1,2 +1,6 @@
-br\com\gubee\interview\core\domain\PowerStatsTest.class
-br\com\gubee\interview\core\domain\HeroTest.class
+br\com\gubee\interview\core\domain\powerstats\PowerstatsTest.class
+br\com\gubee\interview\core\domain\hero\HeroTest.class
+br\com\gubee\interview\core\domain\powerstats\PowerstatsDTOTest.class
+br\com\gubee\interview\core\domain\hero\HeroComparisonResponseDTOTest.class
+br\com\gubee\interview\core\domain\hero\HeroRequestDTOTest.class
+br\com\gubee\interview\core\domain\hero\HeroResponseDTOTest.class

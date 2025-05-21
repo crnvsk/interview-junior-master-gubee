@@ -1,5 +1,12 @@
-br\com\gubee\interview\core\domain\Hero.class
-br\com\gubee\interview\core\domain\PowerStats.class
+br\com\gubee\interview\core\domain\utils\mappers\HeroMapper.class
+br\com\gubee\interview\core\domain\powerstats\Powerstats.class
+br\com\gubee\interview\core\domain\hero\HeroRequestDTO.class
+br\com\gubee\interview\core\domain\powerstats\PowerstatsComparisonResult.class
+br\com\gubee\interview\core\domain\powerstats\PowerstatsDTO.class
+br\com\gubee\interview\core\domain\utils\mappers\HeroMapperImpl.class
+br\com\gubee\interview\core\domain\powerstats\PowerstatsRepository.class
+br\com\gubee\interview\core\domain\hero\HeroRepository.class
 br\com\gubee\interview\core\domain\enums\Race.class
-br\com\gubee\interview\core\domain\Hero$HeroBuilder.class
-br\com\gubee\interview\core\domain\PowerStats$PowerStatsBuilder.class
+br\com\gubee\interview\core\domain\hero\Hero.class
+br\com\gubee\interview\core\domain\hero\HeroComparisonResponseDTO.class
+br\com\gubee\interview\core\domain\hero\HeroResponseDTO.class

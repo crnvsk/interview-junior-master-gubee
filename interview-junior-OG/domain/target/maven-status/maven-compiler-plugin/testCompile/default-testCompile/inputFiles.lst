@@ -1,2 +1,6 @@
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\HeroTest.java
-C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\PowerStatsTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\hero\HeroComparisonResponseDTOTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\hero\HeroRequestDTOTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\hero\HeroResponseDTOTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\hero\HeroTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\powerstats\PowerstatsDTOTest.java
+C:\Users\Carneiro\Documents\GitHub\interview-junior-master-gubee\interview-junior-OG\domain\src\test\java\br\com\gubee\interview\core\domain\powerstats\PowerstatsTest.java
