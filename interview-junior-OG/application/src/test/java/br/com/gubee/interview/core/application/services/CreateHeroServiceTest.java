@@ -23,7 +23,11 @@ class CreateHeroServiceTest {
         heroRepository = new InMemoryHeroRepository();
         powerstatsRepository = new InMemoryPowerstatsRepository();
         heroMapper = new HeroMapperStub();
-        createHeroService = new CreateHeroService(heroRepository, powerstatsRepository, heroMapper);
+        createHeroService = new CreateHeroService(
+                heroRepository,
+                powerstatsRepository,
+                powerstatsRepository,
+                heroMapper);
     }
 
     @Test

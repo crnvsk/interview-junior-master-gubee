@@ -11,10 +11,11 @@ import br.com.gubee.interview.core.adapters.outbound.entities.JpaPowerstatsEntit
 import br.com.gubee.interview.core.adapters.outbound.respositories.powerstats.JpaPowerstatsRepository;
 import br.com.gubee.interview.core.adapters.utils.mappers.JpaToHeroDomain;
 import br.com.gubee.interview.core.domain.hero.Hero;
-import br.com.gubee.interview.core.domain.hero.HeroRepository;
+import br.com.gubee.interview.core.domain.hero.HeroCommandPort;
+import br.com.gubee.interview.core.domain.hero.HeroQueryPort;
 
 @Repository
-public class HeroRepositoryImpl implements HeroRepository {
+public class HeroRepositoryImpl implements HeroCommandPort, HeroQueryPort {
     private final JpaHeroRepository jpaHeroRepository;
     private final JpaPowerstatsRepository jpaPowerstatsRepository;
 

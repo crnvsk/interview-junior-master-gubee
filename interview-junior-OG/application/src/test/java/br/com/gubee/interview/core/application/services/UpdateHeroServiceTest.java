@@ -24,7 +24,11 @@ class UpdateHeroServiceTest {
     void setUp() {
         heroRepository = new InMemoryHeroRepository();
         powerstatsRepository = new InMemoryPowerstatsRepository();
-        updateHeroService = new UpdateHeroService(heroRepository, powerstatsRepository);
+        updateHeroService = new UpdateHeroService(
+                heroRepository,
+                heroRepository,
+                powerstatsRepository,
+                powerstatsRepository);
     }
 
     @Test

@@ -3,9 +3,10 @@ package br.com.gubee.interview.core.application.stubs;
 import java.util.*;
 
 import br.com.gubee.interview.core.domain.hero.Hero;
-import br.com.gubee.interview.core.domain.hero.HeroRepository;
+import br.com.gubee.interview.core.domain.hero.HeroCommandPort;
+import br.com.gubee.interview.core.domain.hero.HeroQueryPort;
 
-public class InMemoryHeroRepository implements HeroRepository {
+public class InMemoryHeroRepository implements HeroCommandPort, HeroQueryPort {
     private final Map<UUID, Hero> storage = new HashMap<>();
 
     @Override

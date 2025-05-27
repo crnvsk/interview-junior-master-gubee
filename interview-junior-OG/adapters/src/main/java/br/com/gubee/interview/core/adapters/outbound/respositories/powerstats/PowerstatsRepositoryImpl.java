@@ -9,10 +9,11 @@ import org.springframework.stereotype.Repository;
 import br.com.gubee.interview.core.adapters.outbound.entities.JpaPowerstatsEntity;
 import br.com.gubee.interview.core.adapters.utils.mappers.JpaToPowerstatsDomain;
 import br.com.gubee.interview.core.domain.powerstats.Powerstats;
-import br.com.gubee.interview.core.domain.powerstats.PowerstatsRepository;
+import br.com.gubee.interview.core.domain.powerstats.PowerstatsCommandPort;
+import br.com.gubee.interview.core.domain.powerstats.PowerstatsQueryPort;
 
 @Repository
-public class PowerstatsRepositoryImpl implements PowerstatsRepository {
+public class PowerstatsRepositoryImpl implements PowerstatsCommandPort, PowerstatsQueryPort {
     private final JpaPowerstatsRepository jpaPowerstatsRepository;
 
     @Autowired
